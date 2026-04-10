@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-gateway-config
+  namespace: fsi-ai-gateway-maas
+  labels:
+    app: ai-gateway
+data:
+  APP_ENV: "production"
+  LOG_LEVEL: "INFO"
+  REDIS_URL: "redis://redis:6379/0"
+
+  # Anthropic models (escalation tier only)
+  MODEL_SMALL:  "claude-haiku-4-5-20251001"
+  MODEL_MEDIUM: "claude-sonnet-4-6"
+  MODEL_LARGE:  "claude-opus-4-6"
+
+  # Red Hat MaaS — primary provider
+  MAAS_ENDPOINT:         "https://litellm-prod.apps.maas.redhatworkshops.io/v1"
+  MAAS_MODEL_CLASSIFIER: "granite-3-2-8b-instruct"
+  MAAS_MODEL_SIMPLE:     "granite-3-2-8b-instruct"
+  MAAS_MODEL_COMPLEX:    "llama-scout-17b"
+  MAAS_MODEL_REASONING:  "deepseek-r1-distill-qwen-14b"
+  MAAS_MODEL_SAFETY:     "Llama-Guard-3-1B"
+
+  # Token budgets (daily)
+  BUDGET_CX_DAILY_TOKENS:      "5000000"
+  BUDGET_IT_DAILY_TOKENS:      "1000000"
+  BUDGET_FINANCE_DAILY_TOKENS: "500000"
+  BUDGET_DEFAULT_DAILY_TOKENS: "500000"
