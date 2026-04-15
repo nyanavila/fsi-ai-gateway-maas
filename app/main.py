@@ -27,11 +27,7 @@ app = FastAPI(title="FSI AI Gateway", version="2.0.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://gateway-demo-fsi-ai-gateway.apps.cluster-9n5fl.9n5fl.sandbox3963.opentlc.com",
-        "http://localhost:3000",
-        "http://localhost:5173",
-    ],
+    allow_origins=[o.strip() for o in settings.CORS_ORIGINS.split(",")],
     allow_methods=["GET", "POST", "DELETE"],
     allow_headers=["Content-Type"],
 )
