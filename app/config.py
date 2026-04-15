@@ -28,6 +28,9 @@ class Settings(BaseSettings):
     BUDGET_FINANCE_DAILY_TOKENS: int = 500_000
     BUDGET_DEFAULT_DAILY_TOKENS: int = 500_000
 
+    # ── CORS ──────────────────────────────────────────────────────────────
+    CORS_ORIGINS: str = "http://localhost:3000,http://localhost:5173"
+
     # ── App ───────────────────────────────────────────────────────────────────
     LOG_LEVEL: str = "INFO"
     APP_ENV:   str = "production"
