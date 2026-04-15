@@ -6,6 +6,7 @@ from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
 from .router import SemanticRouter
+from .config import settings
 from .cache import SemanticCache
 from .security import SecurityLayer
 from .budget import BudgetManager
@@ -314,8 +315,6 @@ async def provider_status():
         },
     }
 
-
-from .config import settings  # noqa: E402 (needed for provider_status)
 
 
 @app.exception_handler(Exception)
